@@ -1,0 +1,6 @@
+
+# Talks about how to install Babel the corresponding eslint
+# so that private class fields work
+
+https://griffa.dev/posts/setting-up-eslint-to-work-with-new-or-proposed-javascript-features-such-as-private-class-fields./#configuring-eslint
+https://stackoverflow.com/questions/22156326/private-properties-in-javascript-es6-classes
