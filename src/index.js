@@ -1,7 +1,5 @@
 import 'normalize.css';
-import TodoInstance from './todoInstance';
+import TodoInstance from './instances/todoInstance';
 
-const test = new TodoInstance("hello", null, null, null);
+// controller
 
-console.log(test.getTitle());
-console.log(TodoInstance.prototype.title);
