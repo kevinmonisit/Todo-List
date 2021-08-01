@@ -20,4 +20,5 @@ const projectView = ProjectView();
 projectView.addProjectComponent(testProjectComponent.getTitle(), testProjectComponent);
 
 
-const viewControl = viewController();
+const viewControl = viewController(projectView.getCurrentProjectContainer);
+
