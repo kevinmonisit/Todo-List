@@ -32,6 +32,17 @@ class TodoInstance {
         this.#priorityLevel = priorityLevel;
     }
 
+    /**
+     * @returns parameters that were passed through the constructor
+     * in their original order.
+     */
+    getParams() {
+        return [this.#title,
+                this.#description,
+                this.#dueDate,
+                this.#priorityLevel];
+    }
+
     getTitle() {
         return this.#title;
     }

@@ -9,7 +9,7 @@ const ProjectView = () => {
   };
 
   const addProjectComponent = (identifier, projectComponent) => {
-    if ({}.prototype.hasOwnProperty.call(projectComponent, identifier)) {
+    if (Object.prototype.hasOwnProperty.call(projectComponents, identifier)) {
       projectComponents[identifier] = projectComponent;
     } else {
       throw Error(`Unable to find ${identifier} project component in list.`);
