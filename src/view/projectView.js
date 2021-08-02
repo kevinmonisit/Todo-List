@@ -17,6 +17,21 @@ const ProjectView = () => {
     currentProjectID = identifier;
   };
 
+  /**
+   *
+   * @param {Function} getReferenceFunction the function to call for each
+   * project component that retrieves a reference from DOM.
+   * @returns an array that contains references to each
+   */
+  const getDOMReferences = (getReferenceFunction) => {
+    const references = [];
+    Object.keys(projectComponents).forEach((key) => {
+      references.push(getReferenceFunction.call(projectComponents[key]));
+    });
+
+    return references;
+  };
+
   const addProjectComponent = (identifier, projectComponent) => {
     if (!currentProjectID) {
       currentProjectID = identifier;
@@ -32,6 +47,7 @@ const ProjectView = () => {
 
   return {
     getCurrentProjectComponent,
+    getDOMReferences,
     addProjectComponent,
     changeToProjectComponent,
     getCurrentProjectContainer,

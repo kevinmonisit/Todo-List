@@ -7,18 +7,27 @@ import ProjectView from './view/projectView';
 
 // controller
 
-let testProject = new Project('test-project');
+const testProject = new Project('test-project');
 console.log(testProject.getName());
 
 let first = new TodoInstance('first', 'oh my god', new Date(), priorityIDs.LOW);
 
 testProject.addToList(first.getTitle, first);
 
-const testProjectComponent = ProjectComponent(testProject.getName(), testProject.getTodoList());
+const testProjectComponent = ProjectComponent(
+  testProject.getName(),
+  testProject.getTodoList(),
+);
 
 const projectView = ProjectView();
-projectView.addProjectComponent(testProjectComponent.getTitle(), testProjectComponent);
-
+projectView.addProjectComponent(
+  testProjectComponent.getTitle(),
+  testProjectComponent,
+);
 
 const viewControl = viewController(projectView.getCurrentProjectContainer);
 
+viewControl.updateProjectContainer(
+  projectView.getDOMReferences((tempProject) => tempProject.getContainer()),
+  projectView.getCurrentProjectContainer,
+);
