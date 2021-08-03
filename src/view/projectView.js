@@ -26,7 +26,7 @@ const ProjectView = () => {
   const getDOMReferences = (getReferenceFunction) => {
     const references = [];
     Object.keys(projectComponents).forEach((key) => {
-      references.push(getReferenceFunction.call(projectComponents[key]));
+      references.push(getReferenceFunction(projectComponents[key]));
     });
 
     return references;

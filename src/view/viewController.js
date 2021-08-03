@@ -10,6 +10,8 @@ const viewController = () => {
   container.style.width = '100%';
   container.style.height = '100%';
 
+  container.id = 'view-container';
+
   const projectContainer = document.createElement('div');
   container.appendChild(projectContainer);
 
@@ -30,7 +32,7 @@ const viewController = () => {
   const updateProjectContainer = (projectComponents, getCurrentProject) => {
     // append any new project components
     // that already haven't been added
-    projectComponents.keys().forEach((key) => {
+    Object.keys(projectComponents).forEach((key) => {
       const componentTemp = projectComponents[key];
       if (!projectContainer.contains(componentTemp)) {
         projectContainer.appendChild(componentTemp);

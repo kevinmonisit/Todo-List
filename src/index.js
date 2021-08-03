@@ -1,4 +1,5 @@
 import 'normalize.css';
+import index from './css/index.css';
 import TodoInstance, { priorityIDs } from './instances/todoInstance';
 import Project from './instances/projectInstance';
 import ProjectComponent from './components/projectComponent';
@@ -31,3 +32,5 @@ viewControl.updateProjectContainer(
   projectView.getDOMReferences((tempProject) => tempProject.getContainer()),
   projectView.getCurrentProjectContainer,
 );
+
+document.body.appendChild(viewControl.getContainer());
