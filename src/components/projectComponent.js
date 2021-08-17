@@ -10,6 +10,8 @@
  */
 const component = (title, todoList) => {
   const container = document.createElement('div');
+  container.classList.add('project-container');
+
   const titleWrapper = document.createElement('div');
   const todoListWrapper = document.createElement('div');
 

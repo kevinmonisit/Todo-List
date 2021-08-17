@@ -13,6 +13,7 @@ const viewController = () => {
   container.id = 'view-container';
 
   const projectContainer = document.createElement('div');
+  projectContainer.classList.add('project-container');
   container.appendChild(projectContainer);
 
   /**

@@ -4,5 +4,17 @@ html, body {
 }
 
 #view-container {
-  background-color: black;
+  background-color: rgb(190, 190, 190);
+}
+
+.todo-instance {
+  width:200px;
+  height:200px;
+  background-color: red;
+}
+
+.project-container {
+  width:200px;
+  height:200px;
+  background-color: green;
 }

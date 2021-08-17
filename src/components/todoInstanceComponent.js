@@ -8,9 +8,14 @@ function createToDoInstanceComponent(
   deleteFunction,
 ) {
   const container = document.createElement('div');
+  container.classList.add('todo-instance');
+
   const deleteButton = document.createElement('button');
+  deleteButton.classList.add('delete-button');
+
   deleteButton.addEventListener('click', deleteFunction);
 
+  return container;
 }
 
 export default createToDoInstanceComponent;
