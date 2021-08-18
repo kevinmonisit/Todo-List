@@ -18,6 +18,8 @@ class TodoInstance {
 
     #priorityLevel;
 
+    #ID;
+
     /**
      *
      * @param {string} title
@@ -30,6 +32,7 @@ class TodoInstance {
         this.#description = description;
         this.#dueDate = dueDate;
         this.#priorityLevel = priorityLevel;
+        this.#ID = Date.now();
     }
 
     /**
@@ -45,6 +48,10 @@ class TodoInstance {
 
     getTitle() {
         return this.#title;
+    }
+
+    getID() {
+        return this.#ID;
     }
 
     getDescription() {

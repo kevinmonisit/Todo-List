@@ -12,6 +12,14 @@
  * project.addTodo(todoInstanceTwo);
  * project.delete(todoInstanceTwo); //use a dict to find it
  *
+ * ------- How will todo instances be deleted or checked off? ---------
+ * checkButton.addEventListener(Controller.checkToggle(todoInstance, currentProject));
+ * --> pass the todo instance and the project itself
+ * deleteButton.addEventListener(Controller.delete(todoInstance, currentProject));
+ *
+ * //something like this
+ * Controller.prototype.delete = (todo, project) => project.delete(todo);
+ *
  * ----------------------------------
  * Changing which project is being viewed.
  * ----------------------------------
@@ -59,19 +67,23 @@ function initTempProject(numberOfTodos) {
 
 describe('initialized project', () => {
   let testProject = new Project('test-project');
+
   beforeEach(() => {
     testProject = initTempProject(STARTING_NUM_TODOS);
+    console.log('helloooooo');
   });
 
   test('has correct number of todo instances', () => {
-    expect(testProject.getTodoList.length).toBe(STARTING_NUM_TODOS);
+    expect(testProject.getTodoListLength()).toBe(STARTING_NUM_TODOS);
   });
 
   test('successfully deletes todo instance', () => {
-    const todoInstance = testProject.getTodoList[1];
+    testProject = initTempProject(STARTING_NUM_TODOS);
+
+    const todoInstance = testProject.getTodoListElement(1);
 
     testProject.deleteFromList(todoInstance);
-    expect(testProject.getTodoList.length).toBe(STARTING_NUM_TODOS - 1);
+    expect(testProject.getTodoListLength()).toBe(STARTING_NUM_TODOS - 1);
   });
 
   test('throws error with incorrect priority', () => {

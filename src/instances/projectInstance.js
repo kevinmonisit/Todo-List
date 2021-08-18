@@ -6,13 +6,14 @@
 class Project {
     #projectName;
 
-    #todoList = {};
+    #todoList;
 
     /**
      * @param {string} projectName
      */
     constructor(projectName) {
         this.#projectName = projectName;
+        this.#todoList = [];
     }
 
     /**
@@ -20,16 +21,24 @@ class Project {
      * @param {string} todoID can be any identifier, such as title or description.
      * @param {object} todoObj
      */
-    addToList(todoID, todoObj) {
-        this.#todoList[todoID] = todoObj;
+    addToList(todoObj) {
+        this.#todoList.push(todoObj);
     }
 
     /**
      *
-     * @param {string} todoID can be any identifier, such as title or description.
+     * @param {*} todoInstance
+     * @return {todoInstance} the removed todoInstance object
      */
-    deleteFromList(todoID) {
-        delete this.#todoList[todoID];
+    deleteFromList(todoInstance) {
+        const index = this.#todoList.findIndex((e) => todoInstance === e);
+
+        if (index === -1) {
+            throw Error(`${todoInstance.getTitle()} was not found in
+            the todo list of project ${this.getName}`);
+        }
+
+        return this.#todoList.splice(index, 1);
     }
 
     /**
@@ -45,9 +54,13 @@ class Project {
                     ${this.#projectName}`);
     }
 
-    getTodoList() {
-        return Object.create(this.#todoList);
+    getTodoListElement(index) {
+        return this.#todoList[index];
     }
+
+    getTodoListLength() {
+        return this.#todoList.length;
+}
 
     getName() {
         return this.#projectName;
